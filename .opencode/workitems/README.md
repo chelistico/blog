@@ -15,6 +15,16 @@
   - Error handling and fallback mechanism
   - Integration with ArticleDetail and ArticleCard
 
+### Advertisement Visibility Optimization
+- **[#28 - Advertisement Visibility Optimization](done/28-advertisement-visibility-optimization.md)** ✅ COMPLETED
+  - Hide advertisement space when no ads available
+  - Remove "No hay anuncios disponibles" message
+  - Return null when no active advertisements
+  - Add debug logging for ad availability
+  - Improves page layout and UX
+  - **Completed:** April 18, 2026
+  - **Reference:** [Completion Report](done/28-COMPLETION.md)
+
 ## Active Workitems 🔄
 
 ### Advertisement System (Frontend)
@@ -41,12 +51,12 @@
   - **Depends on:** Workitem #25
 
 - **[#27 - Advertisement Testing & Optimization](27-advertisement-testing-optimization.md)** ⏳ PENDING
-  - Comprehensive testing (visual, functional, performance)
-  - Accessibility compliance
-  - Cross-browser testing
-  - Documentation and monitoring
-  - **Estimated:** 4-5 hours
-  - **Depends on:** Workitem #26
+   - Comprehensive testing (visual, functional, performance)
+   - Accessibility compliance
+   - Cross-browser testing
+   - Documentation and monitoring
+   - **Estimated:** 4-5 hours
+   - **Depends on:** Workitem #26
 
 ## Summary Documents
 
@@ -94,12 +104,13 @@
 | 25 | Advertisement Banner Component | ⏳ Pending | 0% | #24 |
 | 26 | Integrate Advertisements | ⏳ Pending | 0% | #25 |
 | 27 | Testing & Optimization | ⏳ Pending | 0% | #26 |
+| 28 | Advertisement Visibility Optimization | ✅ Complete | 100% | #25 |
 
 ## Total Effort
 
-- **Completed:** 8-9 hours (Workitems #22, #23)
+- **Completed:** 10-11 hours (Workitems #22, #23, #28)
 - **Remaining:** 12-16 hours (Workitems #24-27)
-- **Total Project:** 20-25 hours
+- **Total Project:** 22-27 hours
 
 ## Key Files to Review
 
@@ -122,9 +133,13 @@
 - 🎨 [Workitem #25: Banner Component](25-advertisement-banner-component.md)
 - 🔗 [Workitem #26: Integration](26-integrate-advertisements.md)
 - ✅ [Workitem #27: Testing](27-advertisement-testing-optimization.md)
+- ✅ [Workitem #28: Visibility Optimization](done/28-advertisement-visibility-optimization.md) - **COMPLETED**
+  - 📋 [Completion Report](done/28-COMPLETION.md)
+  - 📖 [Executive Summary](done/28-EXECUTIVE-SUMMARY.md)
+  - 📊 [Analysis](done/28-ANALYSIS-DETAILED.md)
 
 ---
 
-**Last Updated:** April 16, 2026  
-**Project Status:** 2 workitems complete, 4 workitems pending  
-**Ready for:** Next phase implementation
+**Last Updated:** April 18, 2026  
+**Project Status:** 3 workitems complete, 4 workitems pending  
+**Ready for:** Remaining advertisement implementation

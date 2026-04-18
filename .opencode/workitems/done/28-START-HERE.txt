@@ -1,0 +1,183 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    WORKITEM #28 - START HERE
+═══════════════════════════════════════════════════════════════════════════════
+
+PROYECTO: Blog Advertisement System
+WORKITEM: #28 - Advertisement Visibility Optimization
+FECHA: April 18, 2026
+ESTADO: 🟢 READY FOR IMPLEMENTATION
+
+═══════════════════════════════════════════════════════════════════════════════
+
+EL PROBLEMA EN 30 SEGUNDOS:
+
+Cuando no hay anuncios disponibles, la aplicación muestra un espacio vacío con
+el mensaje "No hay anuncios disponibles para esta posición".
+
+Esto es confuso para el usuario y ocupa espacio innecesario en la página.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+LA SOLUCIÓN EN 30 SEGUNDOS:
+
+En lugar de mostrar ese espacio vacío, simplemente NO renderizar nada
+(retornar null).
+
+El espacio desaparece automáticamente y la página se ve más limpia.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿QUÉ CAMBIAR?
+
+Archivo: frontend/src/components/AdvertisementBanner.tsx
+Líneas: ~10 líneas
+Cambios: 3 return statements (cambiar de mostrar div a retornar null)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿CUÁNTO TIEMPO LLEVA?
+
+Implementación: 15-30 minutos
+Testing: 30-60 minutos
+Total: 1-2 horas
+Complejidad: ⭐⭐⭐⭐⭐ (SUPER FÁCIL)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+DOCUMENTACIÓN DISPONIBLE:
+
+1. 28-EXECUTIVE-SUMMARY.md          10 min    ← READ FIRST!
+   Resumen ejecutivo y decisiones clave
+
+2. 28-QUICK-REFERENCE.md            5 min     ← Para implementar
+   Código exacto para copiar y pegar
+
+3. 28-VISUAL-COMPARISON.md          15 min    ← Entender impacto visual
+   Diagramas antes/después
+
+4. 28-advertisement-visibility-optimization.md  20 min
+   Especificación técnica completa
+
+5. 28-ANALYSIS-DETAILED.md          30 min    ← Deep dive
+   Análisis, casos de prueba, FAQ
+
+6. 28-INDEX.md                      5 min     ← Navegación
+   Guía de documentación
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CAMINO RÁPIDO (15 MINUTOS):
+
+1. Lee: 28-EXECUTIVE-SUMMARY.md (10 min)
+2. Usa: 28-QUICK-REFERENCE.md (5 min)
+3. Listo para implementar!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CAMINO COMPLETO (90 MINUTOS):
+
+1. 28-EXECUTIVE-SUMMARY.md         (10 min)
+2. 28-VISUAL-COMPARISON.md         (15 min)
+3. 28-advertisement-visibility-optimization.md (20 min)
+4. 28-ANALYSIS-DETAILED.md         (30 min)
+5. 28-QUICK-REFERENCE.md           (5 min)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿DÓNDE ESTÁN LOS ARCHIVOS?
+
+Todos en: .opencode/workitems/
+
+Los archivos creados:
+- 28-advertisement-visibility-optimization.md
+- 28-ANALYSIS-DETAILED.md
+- 28-EXECUTIVE-SUMMARY.md
+- 28-QUICK-REFERENCE.md
+- 28-VISUAL-COMPARISON.md
+- 28-INDEX.md
+
+Archivo actualizado:
+- README.md (con referencia a workitem #28)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PRÓXIMOS PASOS:
+
+AHORA:
+1. ✅ Análisis completado
+2. ⏳ Lee 28-EXECUTIVE-SUMMARY.md
+
+CUANDO ESTÉS LISTO:
+3. ⏳ Lee 28-QUICK-REFERENCE.md
+4. ⏳ Implementa los cambios
+5. ⏳ Ejecuta los test cases
+6. ⏳ Commit y push
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PREGUNTAS FRECUENTES:
+
+P: ¿Esto es un breaking change?
+R: No. Components que usan AdvertisementBanner siguen funcionando igual.
+
+P: ¿Se verá un borde donde estaba el anuncio?
+R: No. Return null = React no renderiza nada.
+
+P: ¿Afecta las métricas de anuncios?
+R: No. Los ads se muestran igual cuando existen.
+
+P: ¿Es fácil de revertir?
+R: Sí, 100% reversible.
+
+Más FAQ: Ver 28-ANALYSIS-DETAILED.md
+
+═══════════════════════════════════════════════════════════════════════════════
+
+BENEFICIOS:
+
+✅ Página más limpia
+✅ Sin mensajes confusos
+✅ Mejor mobile experience
+✅ Mejor UX general
+✅ Sin impacto en ad metrics
+✅ Fácil de implementar
+✅ Fácil de probar
+✅ Fácil de revertir
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SOPORTE:
+
+¿Preguntas?
+→ Lee 28-ANALYSIS-DETAILED.md (sección FAQ)
+
+¿Necesitas debugging?
+→ Ve 28-QUICK-REFERENCE.md (sección Debugging Tips)
+
+¿Quieres entender todo?
+→ Lee 28-ANALYSIS-DETAILED.md (completo)
+
+¿Necesitas código exacto?
+→ Usa 28-QUICK-REFERENCE.md (sección Cambios Exactos)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+STATUS:
+
+Análisis:      ✅ COMPLETO
+Documentación: ✅ COMPLETA (6 archivos, 67KB)
+Test Cases:    ✅ 7 proporcionados
+Code Changes:  ✅ Identificados (3 returns)
+Ready:         🟢 SÍ
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿LISTO PARA EMPEZAR?
+
+Abre: 28-EXECUTIVE-SUMMARY.md
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Creado: April 18, 2026
+Última actualización: April 18, 2026
+Versión: 1.0
