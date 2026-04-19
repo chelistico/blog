@@ -1,15 +1,39 @@
 # TechDaily - Blog de Tecnología
 
-Proyecto de blog de tecnología construido con React (frontend) y Laravel 12 (backend API).
+Proyecto de blog de tecnología construido con **React 18** (frontend) y **Laravel 13** (backend API).
 
-## Estructura del Proyecto
+## 🚀 Inicio Rápido
+
+**¿Tienes 15 minutos?** → [`docs/START_HERE.md`](./docs/START_HERE.md)
+
+**¿Necesitas toda la documentación?** → [`docs/README.md`](./docs/README.md)
+
+## 📂 Estructura del Proyecto
 
 ```
 blog/
-├── frontend/          # Aplicación React + TypeScript + Vite
-├── backend/           # API Laravel 12
-└── .opencode/        # Documentación y workitems para agentes IA
+├── frontend/              # React 18 + TypeScript + Vite
+├── backend/              # Laravel 13 + Filament 4 + MySQL
+├── .opencode/            # Sistema de agentes IA + workitems
+│   ├── agents/          # 5 agentes coordinados
+│   ├── workitems/       # Tareas a implementar
+│   └── docs/            # Documentación interna
+└── docs/                # Documentación pública (EMPEZAR AQUÍ)
+    ├── deployment/      # Guías de deployment
+    └── README.md        # Índice de documentación
 ```
+
+## 📖 Documentación
+
+**Toda la documentación está en `./docs/`**
+
+Accesos rápidos:
+- **Inicio rápido:** [`docs/START_HERE.md`](./docs/START_HERE.md) (15 min)
+- **Resumen ejecutivo:** [`docs/RESUMEN_EJECUTIVO.md`](./docs/RESUMEN_EJECUTIVO.md) (20 min)
+- **Análisis técnico:** [`docs/ANALISIS_DETALLADO.md`](./docs/ANALISIS_DETALLADO.md) (60+ min)
+- **Arquitectura:** [`docs/ARQUITECTURA_DIAGRAMAS.md`](./docs/ARQUITECTURA_DIAGRAMAS.md) (30 min)
+- **Índice completo:** [`docs/INDICE_ANALISIS.md`](./docs/INDICE_ANALISIS.md) (10 min)
+- **Deployment:** [`docs/deployment/DEPLOYMENT_GUIDE.md`](./docs/deployment/DEPLOYMENT_GUIDE.md)
 
 ## Arquitectura
 
@@ -423,13 +447,6 @@ echo "✓ Permisos configurados correctamente"
 - [ ] Logs y temp limpios
 - [ ] Verificar uploads en admin panel
 
-## Documentación
- Detallada
-
-- [Frontend README](./frontend/README.md)
-- [Backend README](./backend/README.md)
-- [Workitems](./.opencode/workitems/00-plan-overview.md)
-
 ## Base de Datos
 
 ### Desarrollo
@@ -442,11 +459,10 @@ echo "✓ Permisos configurados correctamente"
 ### Producción
 - MySQL Server dedicado o servicio cloud (AWS RDS, DigitalOcean, etc.)
 
-## Documentación
+## 📚 Referencias
 
-- [Frontend README](./frontend/README.md)
-- [Backend README](./backend/README.md)
-- [Workitems](./.opencode/workitems/00-plan-overview.md)
-- [Guía Docker](./.opencode/docs/docker-guide.md)
-- [Configuración Virtual Hosts](./.opencode/docs/virtual-hosts.md)
-- [Configuración de Entorno](./.opencode/docs/environment-config.md)
+- **Documentación completa:** [`./docs/README.md`](./docs/README.md)
+- **Frontend README:** [`./frontend/README.md`](./frontend/README.md)
+- **Backend README:** [`./backend/README.md`](./backend/README.md)
+- **Sistema de Agentes:** [`.opencode/agents/README.md`](./.opencode/agents/README.md)
+- **Workitems:** [`.opencode/workitems/`](./.opencode/workitems/)
