@@ -374,9 +374,10 @@ Escalar al usuario si:
 ## Recursos y Referencias
 
 ### Documentación del Proyecto
-- `RESUMEN_EJECUTIVO.txt` - Visión general del proyecto
-- `ANALISIS_DETALLADO.md` - Arquitectura y componentes
-- `ARQUITECTURA_DIAGRAMAS.md` - Diagramas de flujo y ERD
+- `../docs/RESUMEN_EJECUTIVO.md` - Visión general del proyecto
+- `../docs/ANALISIS_DETALLADO.md` - Arquitectura y componentes
+- `../docs/ARQUITECTURA_DIAGRAMAS.md` - Diagramas de flujo y ERD
+- `../docs/START_HERE.md` - Punto de entrada rápido
 
 ### Configuración y Setup
 - Backend API: `http://localhost:8000/api`
