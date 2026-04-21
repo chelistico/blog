@@ -2,46 +2,47 @@
 
 ## Visión General
 
-El proyecto Blog TechDaily funciona con un **equipo coordinado de 5 agentes especializados** que trabajan juntos para entregar features de alta calidad:
+El proyecto Blog TechDaily funciona con un **equipo coordinado de 6 agentes especializados** que trabajan juntos para entregar features y contenido de alta calidad:
 
 ```
 ┌─────────────────────────────────────┐
 │  1. TECH LEAD                       │
 │  Coordinador y Arquitecto           │
-│  (Nuevo - tech-lead.md)             │
+│  (tech-lead.md)                     │
 └──────────────┬──────────────────────┘
                │
-       ┌───────┼───────┐
-       │       │       │
-       ↓       ↓       ↓
-  ┌────────┐┌────────┐┌──────────┐
-  │Backend ││Frontend││Code      │
-  │Laravel ││Integr. ││Review    │
-  │        ││        ││          │
-  │Existente│Existente│Existente│
-  └────────┘└────────┘└──────────┘
-       │       │       │
-       └───────┼───────┘
+       ┌───────┼───────┬────────┐
+       │       │       │        │
+       ↓       ↓       ↓        ↓
+  ┌────────┐┌────────┐┌──────┐┌──────────┐
+  │Backend ││Frontend││Content││Code     │
+  │Laravel ││Integr. ││Creator││Review   │
+  │        ││        ││       ││         │
+  │        │        │ │ NEW  │         │
+  └────────┘└────────┘└──────┘└──────────┘
+       │       │       │        │
+       └───────┼───────┴────────┘
                │
                ↓
   ┌────────────────────────┐
   │2. DEV FULLSTACK        │
   │ Ejecutor Full-Stack    │
-  │ (Nuevo - dev-fullstack.md)
+  │ (dev-fullstack.md)     │
   └────────────────────────┘
 ```
 
 ---
 
-## Los 5 Agentes - Matriz de Responsabilidades
+## Los 6 Agentes - Matriz de Responsabilidades
 
 | # | Agente | Rol | Especialidad | Cuándo Usar | Quién Coordina |
 |---|--------|-----|--------------|------------|----------------|
 | **1** | **Tech Lead** | Coordinador | Análisis, diseño, planificación, delegación | SIEMPRE PRIMERO | Usuario/Stakeholder |
 | **2** | **Backend Laravel 12** | Especialista | APIs REST, modelos, migraciones, BD | Tareas backend puras | Tech Lead |
 | **3** | **Frontend Integration** | Especialista | Componentes React, UI, estilos, integración APIs | Tareas frontend puras | Tech Lead |
-| **4** | **Code Review** | Validador | Testing, calidad, seguridad, performance | Después de implementación | Tech Lead |
-| **5** | **Dev Fullstack** | Ejecutor | Backend + Frontend completo, integración e2e | Features complejas (3+ días) | Tech Lead |
+| **4** | **Content Creator** | Especialista | Creación artículos, investigación, SEO | Nuevos artículos para blog | Tech Lead |
+| **5** | **Code Review** | Validador | Testing, calidad, seguridad, performance | Después de implementación | Tech Lead |
+| **6** | **Dev Fullstack** | Ejecutor | Backend + Frontend completo, integración e2e | Features complejas (3+ días) | Tech Lead |
 
 ---
 
@@ -178,7 +179,84 @@ Tech Lead: "Validado"
 
 ---
 
-### 4️⃣ Code Review
+### 4️⃣ Content Creator
+**Archivo:** `.opencode/agents/content-creator.md`
+
+**✅ Hace:**
+- Crear artículos técnicos de alta calidad
+- Investigar y validar información técnica
+- Citar fuentes confiables
+- Buscar imágenes libres de derechos
+- Generar metadata (slug, summary, tags, read_time)
+- Estructurar contenido con jerarquía clara
+- Agregar ejemplos prácticos y casos de uso
+- Crear archivos markdown estructurados
+
+**❌ NO hace:**
+- Publicar artículos directamente
+- Tomar decisiones editoriales finales
+- Crear contenido sin rigor técnico
+- Usar imágenes con restricciones de copyright
+
+**Especialidad:**
+- Investigación técnica rigurosa
+- Escritura profesional y accesible
+- Integración de contenido visual
+- SEO y accesibilidad de contenido
+
+**Fuentes Confiables:**
+- Documentación oficial de tecnologías
+- RFC y estándares OWASP
+- Articulos técnicos respaldados
+- Blogs especializados reconocidos
+
+**Bancos de Imágenes:**
+- Unsplash: https://unsplash.com/
+- Pexels: https://www.pexels.com/
+- Pixabay: https://pixabay.com/
+- Freepik: https://www.freepik.com/
+
+**Ejemplo:**
+```
+Usuario: "Quiero un artículo sobre TypeScript Generics"
+
+Content Creator:
+   1. Recibe texto base (si existe)
+   2. Investiga: TS Handbook, RFC, ejemplos
+   3. Busca imágenes relevantes
+   4. Redacta: Intro → Conceptos → Ejemplos → Best Practices
+   5. Cita fuentes
+   6. Genera metadata (slug, summary, tags, read_time)
+   7. Crea archivo: .opencode/articles/drafts/typescript-generics.md
+   8. "Artículo completado y listo para revisión"
+
+Tech Lead: "Validado y listo para publicación"
+```
+
+**Salida Esperada:**
+```
+Archivo: .opencode/articles/drafts/{slug}.md
+
+Estructura:
+---
+title: "..."
+slug: "..."
+summary: "..."
+main_image: "..."
+embedded_images: [...]
+author_name: "..."
+tags: [...]
+read_time: X
+---
+
+# Contenido en Markdown
+
+Validación: ✅ Completado
+```
+
+---
+
+### 5️⃣ Code Review
 **Archivo:** `.opencode/agents/code-review.md`
 
 **✅ Hace:**
@@ -232,7 +310,7 @@ Tech Lead: "Merge a main"
 
 ---
 
-### 5️⃣ Dev Fullstack
+### 6️⃣ Dev Fullstack
 **Archivo:** `.opencode/agents/dev-fullstack.md`
 
 **✅ Hace:**
