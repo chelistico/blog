@@ -1,0 +1,226 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║            📌 REFERENCIA RÁPIDA: Error HTTP 403 en Livewire                  ║
+║                         Blog TechDaily - Producción                           ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚡ QUICK REFERENCE TABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────┬──────────────────────┬──────────┬─────────────────────────┐
+│ Aspecto         │ Valor                │ Status   │ Acción                  │
+├─────────────────┼──────────────────────┼──────────┼─────────────────────────┤
+│ Error           │ HTTP 403 Forbidden   │ 🔴 ACTIVO│ Ver QUICK_FIX_403.md     │
+│ Endpoint        │ POST /livewire/update│          │                         │
+│ Host            │ api.chelistico.ar    │          │                         │
+│                 │                      │          │                         │
+│ Causa Raíz      │ SESSION_DOMAIN       │ ✅ IDENT │ Cambiar en .env.prod    │
+│ Config Actual   │ .chelistico.ar       │ ❌ ERROR │ → api.chelistico.ar     │
+│                 │                      │          │                         │
+│ Impacto         │ Admin panel bloqueado│ 🔴 CRÍTICO│ Implementar HOY         │
+│ Severidad       │ ⭐⭐⭐⭐⭐            │ MÁXIMO  │ Resolución: 3 min       │
+│ Riesgo Cambio   │ ⭐ MUY BAJO          │ BAJO    │ Solo config, sin code   │
+│                 │                      │          │                         │
+│ Solución Tiempo │ 3 minutos            │ FAST    │ bash COMANDOS...sh fix  │
+│ Downtime        │ 0 segundos           │ NINGUNO │ Cambio en vivo          │
+│ Rollback Time   │ 3 minutos            │ FAST    │ Revertir fácil          │
+└─────────────────┴──────────────────────┴──────────┴─────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 QUICK FIX (3 PASOS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─ PASO 1: EDITAR CONFIGURACIÓN ─────────────────────────────────────────────┐
+│ Archivo: /var/www/html/blog/backend/.env.production                         │
+│                                                                             │
+│ CAMBIO:                                                                    │
+│   SESSION_DOMAIN=.chelistico.ar  →  SESSION_DOMAIN=api.chelistico.ar      │
+│                                                                             │
+│ Tiempo: 1 minuto                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ PASO 2: LIMPIAR SISTEMA ─────────────────────────────────────────────────┐
+│ Comandos:                                                                  │
+│   php artisan session:clean                                                │
+│   php artisan cache:clear                                                  │
+│   php artisan config:cache                                                 │
+│                                                                             │
+│ Tiempo: 1 minuto                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ PASO 3: REINICIAR SERVICIOS ─────────────────────────────────────────────┐
+│ Comando:                                                                   │
+│   sudo systemctl restart php-fpm                                           │
+│                                                                             │
+│ Verificar:                                                                 │
+│   sudo systemctl status php-fpm                                            │
+│                                                                             │
+│ Tiempo: 1 minuto                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+RESULTADO: ✅ Crear artículo debería funcionar (HTTP 200 OK)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 VERIFICACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─ Antes de Implementar ────────────────────────────────────────────────────┐
+│ ☐ Backup de .env.production hecho                                         │
+│ ☐ Acceso SSH al servidor confirmado                                       │
+│ ☐ Ventana de mantenimiento identificada (si aplica)                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ Después de Implementar ──────────────────────────────────────────────────┐
+│ ☐ .env.production actualizado                                             │
+│ ☐ php artisan session:clean ejecutado                                     │
+│ ☐ php artisan cache:clear ejecutado                                       │
+│ ☐ php artisan config:cache ejecutado                                      │
+│ ☐ sudo systemctl restart php-fpm ejecutado                                │
+│ ☐ PHP-FPM verificado (running)                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ Validación Manual ────────────────────────────────────────────────────────┐
+│ 1. Limpiar navegador: Shift+Ctrl+Del → Clear all                          │
+│ 2. Acceder: https://api.chelistico.ar/admin                               │
+│ 3. Intentar: Crear nuevo artículo                                         │
+│ 4. Verificar: DevTools > Network > POST /livewire/update → 200 OK          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🆘 TROUBLESHOOTING RÁPIDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────┬─────────────┬──────────────────────────────┐
+│ Síntoma                     │ Causa       │ Solución                     │
+├─────────────────────────────┼─────────────┼──────────────────────────────┤
+│ Todavía 403 después del fix │ Cache      │ php artisan cache:clear      │
+│                             │ viejas     │ + systemctl restart php-fpm  │
+├─────────────────────────────┼─────────────┼──────────────────────────────┤
+│ "Invalid CSRF token"        │ Token      │ Limpiar navegador            │
+│                             │ expirado   │ Shift+Ctrl+Del → Clear all   │
+├─────────────────────────────┼─────────────┼──────────────────────────────┤
+│ "TokenMismatchException"    │ Sesión no  │ php artisan session:clean    │
+│                             │ sincroniza │ + php artisan config:cache   │
+├─────────────────────────────┼─────────────┼──────────────────────────────┤
+│ PHP-FPM no reinicia        │ Proceso    │ sudo systemctl status php-fpm│
+│                             │ bloqueado  │ Ver error específico         │
+├─────────────────────────────┼─────────────┼──────────────────────────────┤
+│ 403 desde nginx            │ Config     │ Contactar DevOps             │
+│                             │ nginx      │ Verificar nginx.conf         │
+├─────────────────────────────┼─────────────┼──────────────────────────────┤
+│ BD error en sessions       │ Tabla      │ php artisan session:table    │
+│                             │ corrupta   │ php artisan migrate          │
+└─────────────────────────────┴─────────────┴──────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📂 COMANDOS ÚTILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DIAGNÓSTICO COMPLETO (RECOMENDADO):
+  bash COMANDOS_DEBUG_CSRF.sh diagnose
+
+IMPLEMENTAR SOLUCIÓN AUTOMÁTICA:
+  bash COMANDOS_DEBUG_CSRF.sh fix
+
+VER CONFIGURACIÓN ACTUAL:
+  php artisan config:show session
+
+VER ÚLTIMOS ERRORES:
+  tail -50 storage/logs/laravel.log | grep -i csrf
+
+VERIFICAR TABLA DE SESIONES:
+  php artisan tinker
+  > DB::table('sessions')->count()
+  > exit
+
+LIMPIAR TODO DE UNA VEZ:
+  php artisan session:clean && php artisan cache:clear && \
+  php artisan config:cache && php artisan view:clear && \
+  sudo systemctl restart php-fpm
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 DOCUMENTACIÓN POR CASO DE USO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────────────┬──────────────────────┬──────────┬──────────────────────┐
+│ Mi Rol           │ Documento            │ Tiempo   │ Acción               │
+├──────────────────┼──────────────────────┼──────────┼──────────────────────┤
+│ Tech Lead        │ RESUMEN_EJECUTIVO    │ 5 min    │ Aprobar solución     │
+│ DevOps (urgente) │ QUICK_FIX_403        │ 2 min    │ Implementar YA       │
+│ Backend Dev      │ SOLUCION_IMPLEMENTAR │ 15 min   │ Step-by-step         │
+│ Architect        │ DIAGNOSTICO_ERROR    │ 30 min   │ Entender raíz        │
+│ Security        │ REFERENCIA_TECNICA   │ 45 min   │ Profundidad técnica  │
+│ DevOps (tools)   │ COMANDOS_DEBUG...SH  │ 5-15 min │ Automatizar          │
+└──────────────────┴──────────────────────┴──────────┴──────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ CHECKLIST DE ÉXITO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+IMPLEMENTACIÓN COMPLETADA:
+  ☐ SESSION_DOMAIN actualizado
+  ☐ Caches limpiados
+  ☐ Servicios reiniciados
+  ☐ Validación manual exitosa
+
+RESULTADOS:
+  ☐ Error 403 resuelto (→ 200 OK)
+  ☐ Admin panel accesible
+  ☐ Artículos se crean correctamente
+  ☐ Sin regresiones en API REST
+  ☐ Sin regresiones en Frontend público
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 ESCALACIÓN RÁPIDA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─ SI TODAVÍA FALLA ─────────────────────────────────────────────────────┐
+│ 1. Recolectar información:                                              │
+│    bash COMANDOS_DEBUG_CSRF.sh diagnose > diagnostico.log               │
+│    tail -50 storage/logs/laravel.log > logs.txt                         │
+│    php artisan route:list | grep livewire > routes.txt                  │
+│                                                                         │
+│ 2. Contactar:                                                           │
+│    • Backend Lead: Debug adicional                                      │
+│    • DevOps: Validación de servidor                                    │
+│    • Filament Community: https://discord.gg/S5DjbzF7                    │
+└──────────────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 CONFIGURACIÓN COMPARATIVA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ANTES (PROBLEMA):
+  SESSION_DOMAIN=.chelistico.ar         (wildcard)
+  SESSION_DRIVER=database                (correcto)
+  SESSION_SAME_SITE=lax                  (correcto)
+  SESSION_SECURE_COOKIE=true             (correcto)
+  RESULT: ❌ 403 FORBIDDEN
+
+DESPUÉS (SOLUCIÓN):
+  SESSION_DOMAIN=api.chelistico.ar       (específico)
+  SESSION_DRIVER=database                (correcto)
+  SESSION_SAME_SITE=lax                  (correcto)
+  SESSION_SECURE_COOKIE=true             (correcto)
+  RESULT: ✅ 200 OK
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 RESUMEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEMA:    HTTP 403 en POST /livewire/update
+CAUSA:       SESSION_DOMAIN=.chelistico.ar (mismatch)
+SOLUCIÓN:    Cambiar a SESSION_DOMAIN=api.chelistico.ar
+TIEMPO:      3 minutos
+RIESGO:      ⭐ Muy bajo
+IMPACTO:     Ninguno (solo configuración)
+NEXT STEP:   Leer QUICK_FIX_403.md o bash COMANDOS_DEBUG_CSRF.sh fix
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    ✅ LISTO PARA IMPLEMENTAR                                 ║
+║              Documentación Completa - Análisis Terminado                      ║
+║                                                                               ║
+║           Preparado por: Dev Fullstack                                        ║
+║           Fecha: 21 de Abril 2026                                            ║
+║           Proyecto: Blog TechDaily                                           ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
